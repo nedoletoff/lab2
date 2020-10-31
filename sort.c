@@ -1,16 +1,16 @@
 #include <stdio.h>
 #define N 128
 
-
-int main()
-{
-	struct word
+struct word
        	{
 		int first;
 		int last;
 		long long weight;
 	};
 
+
+int main()
+{
 	struct word words[N/2] = {0}; 
 	struct word temp = {0};
 	int temp_count = 0;
