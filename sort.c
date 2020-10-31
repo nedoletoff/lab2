@@ -8,6 +8,11 @@ struct word
 		long long weight;
 	};
 
+int compare(struct word a, struct word b)
+{
+
+	return 1;
+}
 
 int main()
 {
