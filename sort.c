@@ -1,6 +1,7 @@
 #include <stdio.h>
 #define N 128
-// A = 65; z = 122; 0 = 48; Z = 90; a = 97; 
+
+
 int main()
 {
 	struct word
