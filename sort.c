@@ -27,7 +27,7 @@ int main()
 		}
 	}
 	
-	words = (char**) malloc(numw * sizeof(char*));
+	words = (char**) malloc(numw * sizeof(char*));		//создать массив адресов
 
 	for (int j = 0; j < N; ++j)		//посчитать количество слов и создать слова
 	{
@@ -50,14 +50,12 @@ int main()
 			++count;
 		}
 	}
-	for (int i = count; i <= numw; ++i)	//удалить лишние адреса
-		free(words[i]);
 
 	for (int i = 0; i < count; ++i)		//упорядочить слова
 	for (int j = i+1; j < count; ++j)
 		{
 			temp_count = 0;
-			while  (words[i][temp_count] != '\0' && words[j][temp_count] != '\0' && words[i][temp_count] == (words[j][temp_count]))
+			while  (words[i][temp_count] == (words[j][temp_count]))
 				++temp_count;
 			if (words[i][temp_count] > words[j][temp_count])
 			{
@@ -67,16 +65,12 @@ int main()
 			}
 		}
 		
-				
-				
-
 	for (int i = 0; i < count; ++i)		//вывести слова в нужном порядке
 	{
 		int j = 0;
 		while (words[i][j] != '\0')
 		{
 			putchar(words[i][j]);
-//			printf("-%d ", words[i][j]);
 			++j;
 		}
 		printf("\n");

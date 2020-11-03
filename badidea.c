@@ -14,13 +14,13 @@ int compare(struct word t, struct word c)
 	{
 		--t.len;
 //		t.weight -= 60;
-		t.weight /= 6;	
+		t.weight /= 3;	
 	}	
 	while (c.len > t.len)
 	{
 		--c.len;
 //		c.weight -= 60;
-		c.weight /= 6;	
+		c.weight /= 3;	
 	}	
 
 	if (c.weight >= t.weight)
@@ -61,7 +61,7 @@ int main()
 			words[count].first = j;
 			while (num[j] != ' ')
 			{
-			       words[count].weight *= 6;
+			       words[count].weight *= 3;
 			       words[count].weight += str[j] - 40;
 			       ++j;
 			}
