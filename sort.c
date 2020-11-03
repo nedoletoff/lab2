@@ -4,13 +4,21 @@
 struct word
        	{
 		int first;
-		int last;
+		int len;
 		long long weight;
 	};
 
-int compare(struct word a, struct word b)
+struct word max_min(struct word a, struct word b)
 {
+	if (a.len > b.len)
+		return a, b;
+	else 
+		return b, a;
+}
 
+int compare(struct word longw, struct word shortw)
+{
+	
 	return 1;
 }
 
@@ -50,7 +58,7 @@ int main()
 			       words[count].weight += str[j] - 40;
 			       ++j;
 			}
-			words[count].last = j-1;
+			words[count].len = j - words[count].first;
 			++count;
 		}
 	}
@@ -70,8 +78,14 @@ int main()
 
 	for (int i = 0; i < count; ++i)		//print words
 	{
-		for (int j = words[i].first; j <= words[i].last; ++j)
-			putchar(str[j]);
+		int j = words[i].len;
+		int k = words[i].first;
+		while (j > 0)
+		{
+			putchar(str[k]);
+			++k;
+			--j;
+		}
 		printf("\n");
 	}
 
