@@ -19,7 +19,7 @@ int main()
 		str[i] = getchar();
 		if (str[i] == ' ')
 		       ++numw;
-		if (str[i] == '\0' || str[i] == '\n')
+		if (str[i] == '\n')
 		{
 			str[i] = ' ';
 			++numw;
@@ -40,14 +40,10 @@ int main()
 				++len;
 				++j;
 			}
-			words[count] = (char*) malloc((len + 1) * sizeof(char));
-			for (int i = 0; i <= len; ++i)
-			{
-				words[count][i] = str[first];
-				++first;
-			}
-			words[count][len++] = '\0';
-			++count;
+			words[count] = (char*) calloc((len), sizeof(char));
+			for (int i = 0; i < len; ++i)
+				words[count][i] = str[first++];
+			words[count++][len] = '\0';
 		}
 	}
 
@@ -73,8 +69,10 @@ int main()
 			putchar(words[i][j]);
 			++j;
 		}
+		free(words[i]);
 		printf("\n");
 	}
+	free(words)
 
 
 	return 0;
